@@ -1,0 +1,81 @@
+from dataclasses import dataclass, field
+
+MINECRAFT_PROMPT = (
+    "Hur startar man ett nytt Minecraft-världen? Jag vill spela survival mode."
+    " Först måste du hugga ner ett träd och samla ved. Sedan craftar du plankor"
+    " och gör ett crafting table. Med crafting table kan du göra en träspade,"
+    " en träyxa och en träpicka. Hur gör man en pickaxe? Du lägger tre plankor"
+    " högst upp och två pinnar i mitten. Pinnar craftar du av plankor."
+    " Var hittar jag kol? Kol finns i stenblock på bergen och i grottor."
+    " Du behöver kol och pinnar för att göra facklor. Facklor lyser upp så"
+    " att monster inte spawnar. Vilka monster finns det? Det finns zombier,"
+    " skelett, spindlar, creepers och enderman. Creepers exploderar om de"
+    " kommer nära dig. Skelett skjuter pilar. Spindlar klättrar på väggar."
+    " Enderman blir arg om man tittar på den. Hur bygger man ett hus?"
+    " Samla cobblestone och plankor och bygg väggar och ett tak. Sätt en"
+    " dörr så att monster inte kan komma in. Glöm inte att sätta facklor"
+    " inuti huset. Hur gör man en säng? Du behöver tre ull och tre plankor."
+    " Ull får du från får. Du kan klippa får med en sax eller döda dem."
+    " Om du sover i sängen hoppar du över natten. Hur hittar jag diamanter?"
+    " Diamanter finns djupt nere, på y-nivå minus femtio till minus sextio."
+    " Gräv ner dig och leta i grottor. Du behöver minst en järnpicka för"
+    " att bryta diamantmalm. Vad kan man göra med diamanter? Du kan göra"
+    " diamantsvärd, diamantrustning, diamantpicka och ett enchanting table."
+    " Hur funkar enchanting? Du behöver ett enchanting table, lapis lazuli"
+    " och erfarenhetspoäng. Bokhyllor runt bordet ger bättre enchantments."
+    " Vad är redstone? Redstone är som elektricitet i Minecraft. Du kan"
+    " bygga redstone-kretsar, dörrar, fällor och automatiska farmer."
+    " Hur gör man en farm? Du kan odla vete, morötter, potatis, betor"
+    " och melon. Du behöver en hacka och vatten nära odlingen. Hur tämjer"
+    " man djur? Du kan tämja en varg med ben, en katt med rå fisk och"
+    " en häst genom att rida på den. Hur gör man en ugn? Du craftar en"
+    " ugn med åtta cobblestone. I ugnen kan du smälta järnmalm till"
+    " järntackor och guldmalm till guldtackor. Du kan också laga mat"
+    " i ugnen. Hur går man till nether? Du bygger en nether portal av"
+    " obsidian. Du behöver minst tio obsidianblock. Tänd portalen med"
+    " en eldstål. I nether finns det ghasts, piglins, magma cubes och"
+    " blaze. Blaze droppar blaze rods som du behöver för att göra"
+    " ender eyes. Hur hittar jag en stronghold? Du kastar ender eyes"
+    " och följer dem. De flyger mot strongholden. Inuti strongholden"
+    " finns en end portal. Hur dödar man enderdraken? Förstör alla"
+    " enderkristaller på tornen först. Sedan slår du på draken med"
+    " pilbåge och svärd. Vad händer efter man dödat draken? Du får"
+    " massor med erfarenhetspoäng och en portal hem. Du kan också"
+    " hitta ett dragon egg. Hur gör man en sköld? Du behöver järntackor"
+    " och plankor. Skölden blockerar attacker. Pappa, kan du hjälpa"
+    " mig? Hur bygger man en bro? Bara smyg och lägg block framåt."
+    " Tryck på shift så faller du inte ner. Var hittar jag emeralds?"
+    " Emeralds finns i bergig biome och du kan handla med villagers."
+    " Villagers byter saker mot emeralds. Vad är en biome? En biome"
+    " är ett område med speciellt landskap, som skog, öken, djungel,"
+    " snötundra, svampö och korallrev. Hur gör man en båt? Du craftar"
+    " en båt av fem plankor. Hur gör man en karta? Du behöver papper"
+    " och en kompass. Papper görs av sockerrör. Hur gör man en"
+    " spyglass? Du behöver koppar och amethyst shard. Kan man flyga"
+    " i Minecraft? I creative mode kan du flyga. I survival behöver"
+    " du elytra som du hittar i end cities. Vad är en trident?"
+    " En trident är ett vapen som drowned kan droppa. Man kan kasta"
+    " den som ett spjut. Hur gör man en shield? Det är samma som"
+    " sköld, du behöver järn och plankor. Mamma, titta vad jag"
+    " byggde! Jag hittade diamonds! Kan vi spela tillsammans?"
+    " Hur gör man en server? Kan vi spela på samma värld? Jag dog!"
+    " Var är mina saker? Du måste springa tillbaka dit du dog och"
+    " plocka upp dem innan de försvinner. Hur spawnar man? Du"
+    " spawnar vid din säng eller vid världens spawn point."
+)
+
+
+@dataclass
+class STTConfig:
+    main_model: str = "small"
+    realtime_model: str = "base"
+    language: str = "sv"
+    device: str = "cpu"
+    compute_type: str = "int8"
+    silero_sensitivity: float = 0.6
+    silero_deactivity_detection: bool = True
+    post_speech_silence_duration: float = 1.0
+    min_length_of_recording: float = 1.5
+    initial_prompt: str = field(default=MINECRAFT_PROMPT)
+    enable_realtime: bool = True
+    spinner: bool = False

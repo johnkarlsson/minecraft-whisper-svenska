@@ -1,0 +1,114 @@
+#main-container {
+    layout: horizontal;
+}
+
+#transcription-panel, #qa-panel {
+    width: 1fr;
+    border: solid $accent;
+    padding: 0 1;
+}
+
+#transcription-panel {
+    border-title-color: $text;
+}
+
+#qa-panel {
+    border-title-color: $text;
+}
+
+#old-toggle-btn {
+    dock: top;
+    height: 1;
+    text-align: right;
+    color: $text-muted;
+    display: none;
+}
+
+#old-toggle-btn.visible {
+    display: block;
+}
+
+#old-toggle-btn:hover {
+    background: $accent;
+    color: $text;
+}
+
+#transcription-log, #qa-log {
+    height: 1fr;
+}
+
+#transcription-status, #pipeline-status {
+    height: 1;
+    dock: bottom;
+}
+
+#qa-new-notice {
+    display: none;
+    height: 1;
+    dock: bottom;
+    color: $warning;
+    text-style: bold;
+    text-align: center;
+}
+
+#qa-new-notice.visible {
+    display: block;
+}
+
+.line-interim {
+    color: $text-disabled;
+}
+
+.line-finalized {
+    color: $text-muted;
+}
+
+.line-transcribed {
+    color: $text;
+}
+
+.line-passed {
+    color: $success;
+}
+
+.line-filtered {
+    color: $text-disabled;
+}
+
+.line-filtered:hover {
+    text-style: underline;
+}
+
+.line-old.hidden {
+    display: none;
+}
+
+.line-deleted {
+    color: $text-disabled;
+    text-style: strike;
+}
+
+#answer-throbber {
+    height: 3;
+}
+
+.qa-entry {
+    margin: 0 0 1 0;
+    padding: 0 1;
+    border: solid green;
+    height: auto;
+}
+
+.qa-delete-btn {
+    dock: right;
+    width: 3;
+    max-height: 1;
+    color: red;
+    text-style: bold;
+    content-align: center middle;
+}
+
+.qa-delete-btn:hover {
+    background: $error;
+    color: $text;
+}

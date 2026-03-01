@@ -4,6 +4,8 @@ Real-time Swedish speech-to-text terminal application for answering Minecraft qu
 
 Built for Swedish-speaking kids playing Minecraft on PS5 (Bedrock Edition).
 
+![Screenshot](screenshot.jpeg)
+
 ## Features
 
 - **Real-time transcription** — interim text appears as you speak, powered by [faster-whisper](https://github.com/SYSTRAN/faster-whisper) and [RealtimeSTT](https://github.com/KoljaB/RealtimeSTT)
@@ -41,6 +43,9 @@ uv run whisper-stt
 ### Examples
 
 ```bash
+# Good Swedish support using KBLab models
+uv run whisper-stt --model KBLab/kb-whisper-large --realtime-model KBLab/kb-whisper-base
+
 # Use a smaller model with TTS enabled
 uv run whisper-stt --model base --speak
 
